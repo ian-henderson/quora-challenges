@@ -70,13 +70,19 @@
 
 int main(int argc, char *argv[])
 {
-        FILE *fp = fopen("input", "r");
         long int N, K;
-        fscanf(fp, "%ld %ld", &N, &K);
+        scanf("%ld %ld", &N, &K);
         long int votes[N];
-        for (int i = 0; i < N; i++)
-                fscanf(fp, "%ld", &votes[i]);
-        fclose(fp);
+        for (int i = 0; i < N; i++) scanf("%ld", &votes[i]);
+
+        for (int i = 0; i < (N - K + 1); i++) {
+                long int non_decreasing = 0, non_increasing = 0;
+                for (int j = i + 1; (j - i) < K; j++) {
+                        if (votes[j - 1] <= votes[j]) non_decreasing++;
+                        if (votes[j - 1] >= votes[j]) non_increasing++;
+                }
+                printf("%ld\n", non_decreasing - non_increasing);
+        }
 
         return 0;
 }
