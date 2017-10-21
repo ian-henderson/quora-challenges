@@ -1,10 +1,8 @@
 #include "stdio.h"
 
-/*
- * ============================================================================
+/* ============================================================================
  * Upvotes
  * ============================================================================
- *
  * At Quora, we have aggregate graphs that track the number of upvotes we get
  * each day.
  *
@@ -73,7 +71,7 @@ int main(int argc, char *argv[])
         long int N, K;
         scanf("%ld %ld", &N, &K);
         long int votes[N];
-        for (int i = 0; i < N; i++) scanf("%ld", &votes[i]);
+        for (long int i = 0; i < N; i++) scanf("%ld", &votes[i]);
 
         for (int i = 0; i < (N - K + 1); i++) {
                 long int non_decreasing = 0, non_increasing = 0;
